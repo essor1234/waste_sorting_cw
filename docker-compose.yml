@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-
   mongo:
     image: mongo
     command: mongod --port 27018
@@ -14,7 +13,8 @@ services:
     volumes:
       - "mongo1_data:/data/db"
       - "mongo1_config:/data/configdb"
-
+    # networks:
+    #   - mynetwork
 
   mongo-express:
     image: mongo-express
@@ -26,7 +26,13 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27018/
       ME_CONFIG_BASICAUTH: false
+    # networks:
+    #   - mynetwork
 
 volumes:
   mongo1_data:
   mongo1_config:
+
+# networks:
+#   mynetwork:
+#     driver: bridge
