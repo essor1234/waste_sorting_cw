@@ -14,10 +14,16 @@ exports.list_all_categories = (req, res) => {
 exports.create_a_category = (req, res) => {
     const newCategory = new Category(req.body);
     newCategory.save((err, category) => {
-        if(err) res.send(err);
-        res.json(category);
+        if (err) {
+            console.error(err); // Log the error
+            res.send(err);
+        } else {
+            console.log(category); // Log the saved category
+            res.json(category);
+        }
     });
 };
+
 
 exports.read_a_category = (req, res) => {
     Category.findById(

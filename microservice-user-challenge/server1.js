@@ -17,25 +17,17 @@ const UserRoutes = require('./api/routes/UserRoutes');
 
 // MongoDB
 mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb://root:example@localhost:27018/WasteSorting?retryWrites=true&w=majority', 
-//     // { useNewUrlParser: true, useUnifiedTopology: true }
-// );
+mongoose.set('strictQuery', false);
 
-// mongoose.connect('mongodb://root:example@mongo:27018/', 
-//     // { useNewUrlParser: true, useUnifiedTopology: true }
-// );
 
-// mongoose.connect('mongodb://root:example@localhost:27018/wasteSorting?retryWrites=true&w=majority', 
-//     { useNewUrlParser: true, useUnifiedTopology: true }
-// );
+mongoose.connect(`mongodb://root:example@mongo:27018/`, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true 
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('Error connecting to MongoDB', err));
 
-// mongoose.connect('mongodb://root:example@localhost:27018/', 
-//     { useNewUrlParser: true, useUnifiedTopology: true }
-// );
 
-mongoose.connect('mongodb://root:example@localhost:27018/', 
-    { useNewUrlParser: true, useUnifiedTopology: true }
-);
 
 // mongoose.connect(process.env.MONGO_URL || 'mongodb://root:example@localhost:27018/', 
 //     { useNewUrlParser: true, useUnifiedTopology: true }
@@ -55,7 +47,7 @@ mongoose.connect('mongodb://root:example@localhost:27018/',
 
 
 // Setup the port for server here
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 const app = express();
 
 // Middleware
@@ -71,7 +63,7 @@ UserRoutes(app);
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server started on port ${port}`);
+    console.log(`Server1 started on port ${port}`);
 });
 
 // Handle 404 errors
