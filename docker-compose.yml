@@ -1,10 +1,46 @@
-# teaching-microservices-nodejs-mongodb
+# version: '3.8'
 
-# Use root/example as user/password credentials
-version: '3.1'
+# services:
+#   mongo:
+#     image: mongo
+#     command: mongod --port 27018
+#     restart: always
+#     ports:
+#       - '27018:27018'
+#     environment:
+#       MONGO_INITDB_ROOT_USERNAME: root
+#       MONGO_INITDB_ROOT_PASSWORD: example
+#     volumes:
+#       - "mongo1_data:/data/db"
+#       - "mongo1_config:/data/configdb"
+#     # networks:
+#     #   - mynetwork
+
+#   mongo-express:
+#     image: mongo-express
+#     restart: always
+#     ports:
+#       - 8081:8081
+#     environment:
+#       ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#       ME_CONFIG_MONGODB_ADMINPASSWORD: example
+#       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27018/
+#       ME_CONFIG_BASICAUTH: false
+#     # networks:
+#     #   - mynetwork
+
+# volumes:
+#   mongo1_data:
+#   mongo1_config:
+
+# # networks:
+# #   mynetwork:
+# #     driver: bridge
+
+# NEW DOCKER-COMPOSE
+version: '3.8'
 
 services:
-
   mongo:
     image: mongo
     command: mongod --port 27018
@@ -17,18 +53,52 @@ services:
     volumes:
       - "mongo1_data:/data/db"
       - "mongo1_config:/data/configdb"
+    networks:
+      - mynetwork
 
   mongo-express:
     image: mongo-express
     restart: always
     ports:
-      - 8081:8081
+      - '8081:8081'
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@localhost:27018/
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27018/
       ME_CONFIG_BASICAUTH: false
+    networks:
+      - mynetwork
+
+  user-challenge:
+    build: ./microservice-user-challenge
+    restart: always
+    ports:
+      - '3000:3000'
+    environment:
+      - MONGO_URL=mongodb://root:example@mongo:27018/
+      - PORT=3000
+    networks:
+      - mynetwork
+    depends_on:
+      - mongo
+
+  category-item:
+    build: ./microservice-category-item
+    restart: always
+    ports:
+      - '3001:3001'
+    environment:
+      - MONGO_URL=mongodb://root:example@mongo:27018/
+      - PORT=3001
+    networks:
+      - mynetwork
+    depends_on:
+      - mongo
 
 volumes:
   mongo1_data:
   mongo1_config:
+
+networks:
+  mynetwork:
+    driver: bridge

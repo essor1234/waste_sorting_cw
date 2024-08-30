@@ -21,12 +21,35 @@ mongoose.Promise = global.Promise;
 //     // { useNewUrlParser: true, useUnifiedTopology: true }
 // );
 
+// mongoose.connect('mongodb://root:example@mongo:27018/', 
+//     // { useNewUrlParser: true, useUnifiedTopology: true }
+// );
+
+// mongoose.connect('mongodb://root:example@localhost:27018/wasteSorting?retryWrites=true&w=majority', 
+//     { useNewUrlParser: true, useUnifiedTopology: true }
+// );
+
+// mongoose.connect('mongodb://root:example@localhost:27018/', 
+//     { useNewUrlParser: true, useUnifiedTopology: true }
+// );
+
 mongoose.connect('mongodb://root:example@localhost:27018/', 
-    // { useNewUrlParser: true, useUnifiedTopology: true }
+    { useNewUrlParser: true, useUnifiedTopology: true }
 );
 
+
+
+
+// mongoose.connect('mongodb://root:example@mongo:27018/', 
+//     { useNewUrlParser: true, useUnifiedTopology: true }
+// );
+
+
+
+
+
 // Setup the port for server here
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 const app = express();
 
 // Middleware
@@ -49,3 +72,4 @@ app.listen(port, () => {
 app.use((req, res) => {
     res.status(404).send({ url: `${req.originalUrl} not found` });
 });
+
