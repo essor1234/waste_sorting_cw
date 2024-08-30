@@ -1,3 +1,5 @@
 1: run " docker compose up " to connect to mongodb on docker (at the main path)
 2: run " npm run start-all" to start server backend (at the main path)
+-- run "npm install" for both microserice folder
+-- if got error, run this first "npm install -g npm-run-all" then try aain
 3: run " npm run serve" to run front-end

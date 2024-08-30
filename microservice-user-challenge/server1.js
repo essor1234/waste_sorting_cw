@@ -20,7 +20,7 @@ mongoose.Promise = global.Promise;
 mongoose.set('strictQuery', false);
 
 
-mongoose.connect(`mongodb://root:example@mongo:27018/`, { 
+mongoose.connect(`mongodb://root:example@localhost:27018/`, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true 
 })
