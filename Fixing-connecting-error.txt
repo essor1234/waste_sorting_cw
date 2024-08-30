@@ -1,0 +1,23 @@
+------ ERROR :
+const serverSelectionError = new ServerSelectionError();            ^
+MongooseServerSelectionError: getaddrinfo ENOTFOUND mongo
+
+------ SOLUTION :
+
+On Linux or macOS:
++ Open a terminal.
++ Use a text editor with superuser privileges to edit the file. For example:
+========= " sudo nano /etc/hosts  "
+
++ Add the following line to map the hostname mongo to localhost:
+    ====  " 127.0.0.1 mongo "
+
++ Save the file and exit the editor (in nano, you can do this by pressing Ctrl+X, then Y, and Enter).
+On Windows:
++ Open Notepad as an administrator. You can do this by searching for Notepad in the Start menu, right-clicking it, and selecting “Run as administrator”.
++ Open the hosts file located at " C:\Windows\System32\drivers\etc\hosts. "
+Add the following line to map the hostname mongo to localhost:
+======   " 127.0.0.1 mongo "
+
++ Save the file and close Notepad.
++ After updating the /etc/hosts file, try running your application again to see if the issue is resolved. If you have any more questions or need further assistance, feel free to ask!

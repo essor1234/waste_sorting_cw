@@ -1,12 +1,12 @@
 {
-  "name": "server",
+  "name": "server1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "preinstall": "npm i nodemon -g",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server1.js"
   },
   "keywords": [],
   "author": "",
