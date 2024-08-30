@@ -11,6 +11,7 @@ const ChallenegSchema = new Schema(
         },
         level: {
             type: String,
+            enum : ['easr,', 'medium', 'hard'],
             default: 'easy'
         },
         score: {

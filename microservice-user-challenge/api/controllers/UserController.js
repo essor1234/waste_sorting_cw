@@ -63,6 +63,7 @@ exports.user_login = (req, res) => {
 
 
 exports.user_register = (req, res) => {
+    console.log(req.body)
     const newUser = new User(req.body);
     // Hash the password before saving
     bcrypt.hash(newUser.password, 10, (err, hash) => {
