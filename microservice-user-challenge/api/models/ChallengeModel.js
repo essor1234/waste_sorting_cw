@@ -11,7 +11,7 @@ const ChallenegSchema = new Schema(
         },
         level: {
             type: String,
-            enum : ['easr,', 'medium', 'hard'],
+            enum : ['easy,', 'medium', 'hard'],
             default: 'easy'
         },
         score: {
@@ -21,6 +21,10 @@ const ChallenegSchema = new Schema(
         name: {
             type: String,
             required: "Challenge name cannot be blank"
+        },
+        creator: {
+            type: String,
+            required: "Creator name cannot be blank"
         }
     },
     // specifying a name for the collection
