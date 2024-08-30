@@ -29,9 +29,14 @@ mongoose.Promise = global.Promise;
 //     { useNewUrlParser: true, useUnifiedTopology: true }
 // );
 
+// mongoose.connect('mongodb://root:example@localhost:27018/', 
+//     { useNewUrlParser: true, useUnifiedTopology: true }
+// );
+
 mongoose.connect('mongodb://root:example@localhost:27018/', 
     { useNewUrlParser: true, useUnifiedTopology: true }
 );
+
 
 
 
