@@ -13,6 +13,7 @@ On Linux or macOS:
     ====  " 127.0.0.1 mongo "
 
 + Save the file and exit the editor (in nano, you can do this by pressing Ctrl+X, then Y, and Enter).
+
 On Windows:
 + Open Notepad as an administrator. You can do this by searching for Notepad in the Start menu, right-clicking it, and selecting “Run as administrator”.
 + Open the hosts file located at " C:\Windows\System32\drivers\etc\hosts. "
