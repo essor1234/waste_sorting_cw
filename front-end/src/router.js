@@ -1,25 +1,25 @@
 import vue from 'vue';
 // Category
-import NewCategory from 'views/category/NewCategory.vue';
-import EditCategory from 'views/category/EditCategory.vue';
-import ShowCategory from 'views/category/ShowCategory.vue';
+import NewCategory from './views/category/NewCategory.vue';
+import EditCategory from './views/category/EditCategory.vue';
+import ShowCategory from './views/category/ShowCategory.vue';
 // challenge
-import NewChallenge from 'views/challenge/NewChallenge.vue';
-import EditChallenge from 'views/challenge/EditChallenge.vue';
-import ShowChallenge from 'views/challenge/ShowChallenge.vue';
+import NewChallenge from './views/challenge/NewChallenge.vue';
+import EditChallenge from './views/challenge/EditChallenge.vue';
+import ShowChallenge from './views/challenge/ShowChallenge.vue';
 // identificate
-import Login from 'views/identificate/Login.vue';
-import Register from 'views/identificate/Register.vue';
-import ShowUser from 'views/identificate/ShowUser.vue';
-import EditUser from 'views/identificate/EditUser.vue';
+import Login from './views/identificate/Login.vue';
+import Register from './views/identificate/Register.vue';
+import ShowUser from './views/identificate/ShowUser.vue';
+import EditUser from './views/identificate/EditUser.vue';
 // item
-import NewItem from 'views/item/NewItem.vue';
-import EditItem from 'views/item/EditItem.vue';
-import ShowItem from 'views/item/ShowItem.vue';
+import NewItem from './views/item/NewItem.vue';
+import EditItem from './views/item/EditItem.vue';
+import ShowItem from './views/item/ShowItem.vue';
 // Other
-import Welcome from 'views/Welcome.vue';
-import WasteManage from 'views/WasteManage.vue';
-import MainPage from 'views/MainPage.vue';
+import Welcome from './views/Welcome.vue';
+import WasteManage from './views/WasteManage.vue';
+import MainPage from './views/MainPage.vue';
 
 import { component } from 'vue/types/umd';
 
