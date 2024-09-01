@@ -5,28 +5,14 @@
       <div class="ui menu">
         <!-- Logo Section -->
         <div class="header item">
-          <img src="path/to/logo.png" alt="Logo" class="logo" />
+          <img src="black-cat.png" alt="Logo" class="logo" />
         </div>
         
         <!-- Navigation Links -->
-        <router-link to="/" exact class="item">
-          Home
-        </router-link>
-        <router-link to="/challenges" class="item">
-          Challenges
-        </router-link>
-        <router-link to="/start" class="item">
-          Start
-        </router-link>
-        <router-link to="/manage" class="item">
-          Manage
-        </router-link>
-        <router-link to="/waste" class="item">
-          Waste
-        </router-link>
-        <router-link to="/user" class="item">
-          User
-        </router-link>
+        <router-link to="/MainPage" exact class="menu-item"> Home </router-link>
+        <router-link to="/MainPage/Challenges" class="menu-item"> Challenges </router-link>
+        <router-link to="/MainPage/Challenges/Start" class="menu-item"> Start Waste Management  </router-link>
+        <router-link to="/MainPage/user" class="menu-item"> User </router-link>
       </div>
     </div>
 
