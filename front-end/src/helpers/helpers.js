@@ -11,7 +11,11 @@ Vue.use(VueFlashMessage, {
 });
 
 const vm = new Vue();
-const baseURL = 'http://localhost:3000/';
+// Use for user and challenge
+const baseURL1 = 'http://localhost:3002/';
+// Use for category and item
+const baseURL2 = 'http://localhost:3003/';
+
 
 const handleError = fn => (...params) =>
     fn(...params).catch(error => {
@@ -22,95 +26,92 @@ const handleError = fn => (...params) =>
 export const api = {
     // User-related API calls
     login: handleError(async payload => {
-        const res = await axios.post(baseURL + 'users/login', payload);
+        const res = await axios.post(baseURL1 + 'users/login', payload);
         return res.data;
     }),
     register: handleError(async payload => {
-        const res = await axios.post(baseURL + 'users/register', payload);
+        const res = await axios.post(baseURL1 + 'users/register', payload);
         return res.data;
     }),
     getUser: handleError(async id => {
-        const res = await axios.get(baseURL + 'users/' + id);
+        const res = await axios.get(baseURL1 + 'users/' + id);
         return res.data;
     }),
     updateUser: handleError(async (id, payload) => {
-        const res = await axios.put(baseURL + 'users/' + id, payload);
+        const res = await axios.put(baseURL1 + 'users/' + id, payload);
         return res.data;
     }),
-
-    // Category-related API calls
-    getCategories: handleError(async () => {
-        const res = await axios.get(baseURL + 'waste-categories');
-        return res.data;
-    }),
-    getCategory: handleError(async id => {
-        const res = await axios.get(baseURL + 'waste-categories/' + id);
-        return res.data;
-    }),
-    createCategory: handleError(async payload => {
-        const res = await axios.post(baseURL + 'waste-categories', payload);
-        return res.data;
-    }),
-    updateCategory: handleError(async (id, payload) => {
-        const res = await axios.put(baseURL + 'waste-categories/' + id, payload);
-        return res.data;
-    }),
-    deleteCategory: handleError(async id => {
-        const res = await axios.delete(baseURL + 'waste-categories/' + id);
+    deleteUser: handleError(async id => {
+        const res = await axios.delete(baseURL1 + id);
         return res.data;
     }),
 
     // Challenge-related API calls
     getChallenges: handleError(async () => {
-        const res = await axios.get(baseURL + 'challenges');
+        const res = await axios.get(baseURL1 + 'challenges');
         return res.data;
     }),
     getChallenge: handleError(async id => {
-        const res = await axios.get(baseURL + 'challenges/' + id);
+        const res = await axios.get(baseURL1 + 'challenges/' + id);
         return res.data;
     }),
     createChallenge: handleError(async payload => {
-        const res = await axios.post(baseURL + 'challenges', payload);
+        const res = await axios.post(baseURL1 + 'challenges', payload);
         return res.data;
     }),
     updateChallenge: handleError(async (id, payload) => {
-        const res = await axios.put(baseURL + 'challenges/' + id, payload);
+        const res = await axios.put(baseURL1 + 'challenges/' + id, payload);
         return res.data;
     }),
     deleteChallenge: handleError(async id => {
-        const res = await axios.delete(baseURL + 'challenges/' + id);
+        const res = await axios.delete(baseURL1 + 'challenges/' + id);
         return res.data;
     }),
+
+    // Category-related API calls
+    getCategories: handleError(async () => {
+        const res = await axios.get(baseURL2 + 'waste-categories');
+        return res.data;
+    }),
+    getCategory: handleError(async id => {
+        const res = await axios.get(  + 'waste-categories/' + id);
+        return res.data;
+    }),
+    createCategory: handleError(async payload => {
+        const res = await axios.post(baseURL2 + 'waste-categories', payload);
+        return res.data;
+    }),
+    updateCategory: handleError(async (id, payload) => {
+        const res = await axios.put(baseURL2 + 'waste-categories/' + id, payload);
+        return res.data;
+    }),
+    deleteCategory: handleError(async id => {
+        const res = await axios.delete(baseURL2 + 'waste-categories/' + id);
+        return res.data;
+    }),
+
+    
 
     // Item-related API calls
     getItems: handleError(async () => {
-        const res = await axios.get(baseURL + 'waste-items');
+        const res = await axios.get(baseURL2 + 'waste-items');
         return res.data;
     }),
     getItem: handleError(async id => {
-        const res = await axios.get(baseURL + 'waste-items/' + id);
+        const res = await axios.get(baseURL2 + 'waste-items/' + id);
         return res.data;
     }),
     createItem: handleError(async payload => {
-        const res = await axios.post(baseURL + 'waste-items', payload);
+        const res = await axios.post(baseURL2 + 'waste-items', payload);
         return res.data;
     }),
     updateItem: handleError(async (id, payload) => {
-        const res = await axios.put(baseURL + 'waste-items/' + id, payload);
+        const res = await axios.put(baseURL2 + 'waste-items/' + id, payload);
         return res.data;
     }),
     deleteItem: handleError(async id => {
-        const res = await axios.delete(baseURL + 'waste-items/' + id);
+        const res = await axios.delete(baseURL2 + 'waste-items/' + id);
         return res.data;
     }),
 
-    // Other API calls
-    getWasteManageData: handleError(async () => {
-        const res = await axios.get(baseURL + 'waste-manage');
-        return res.data;
-    }),
-    getMainPageData: handleError(async () => {
-        const res = await axios.get(baseURL + 'main');
-        return res.data;
-    })
 };
