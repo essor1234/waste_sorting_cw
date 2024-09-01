@@ -1,41 +1,64 @@
 <template>
-    <div>
-      <h2>{{ user.name }}</h2>
-      <p>Email: {{ user.email }}</p>
-      <p>Waste Score: {{ user.wasteScore }}</p>
-      <button @click="editUser">Edit</button>
-      <button @click="deleteUser">Delete</button>
+  <div class="user-profile">
+    <h2>User Profile</h2>
+    <div v-if="user">
+      <div class="profile-field">
+        <strong>Username:</strong> {{ user.username }}
+      </div>
+      <div class="profile-field">
+        <strong>Email:</strong> {{ user.email }}
+      </div>
+      <div class="profile-field">
+        <strong>Joined:</strong> {{ formatDate(user.joinDate) }}
+      </div>
+      <div class="profile-field">
+        <strong>Last Login:</strong> {{ formatDate(user.lastLogin) }}
+      </div>
     </div>
-  </template>
-  
-  <script>
-  import { fetchUserById, deleteUser } from '../helpers'
-  
-  export default {
-    data() {
-      return {
-        user: null
-      };
-    },
-    created() {
-      this.loadUser();
-    },
-    methods: {
-      loadUser() {
-        const userId = this.$route.params.userId;
-        fetchUserById(userId).then(response => {
-          this.user = response.data;
-        });
-      },
-      editUser() {
-        this.$router.push(`/users/${this.user._id}/edit`);
-      },
-      deleteUser() {
-        deleteUser(this.user._id).then(() => {
-          this.$router.push('/users');
-        });
-      }
+    <div v-else>
+      <p>No user data available.</p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'ShowUser',
+  props: {
+    user: {
+      type: Object,
+      default: null
     }
-  };
-  </script>
-  
+  },
+  methods: {
+    formatDate(date) {
+      if (!date) return 'N/A';
+      return new Date(date).toLocaleString();
+    }
+  }
+}
+</script>
+
+<style scoped>
+.user-profile {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.profile-field {
+  margin-bottom: 10px;
+}
+
+strong {
+  font-weight: bold;
+  margin-right: 5px;
+}
+</style>
