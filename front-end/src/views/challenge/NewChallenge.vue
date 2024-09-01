@@ -1,0 +1,23 @@
+<template>
+    <div>
+      <h2>New Challenge</h2>
+      <ChallengeForm @save="saveChallenge" />
+    </div>
+  </template>
+  
+  <script>
+  import ChallengeForm from './ChallengeForm.vue';
+  import { createChallenge } from '../helpers';
+  
+  export default {
+    components: { ChallengeForm },
+    methods: {
+      saveChallenge(challenge) {
+        createChallenge(challenge).then(() => {
+          this.$router.push('/challenges');
+        });
+      }
+    }
+  };
+  </script>
+  
