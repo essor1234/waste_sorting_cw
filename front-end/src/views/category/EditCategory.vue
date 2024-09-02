@@ -7,7 +7,7 @@
   
   <script>
   import CategoryForm from './CategoryForm.vue';
-  import { fetchCategoryById, updateCategory } from '../helpers';
+  import { api } from '../helpers/helpers';
   
   export default {
     components: { CategoryForm },

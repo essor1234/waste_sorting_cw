@@ -9,7 +9,7 @@
   </template>
   
   <script>
-  import { fetchCategoryById, deleteCategory } from '../helpers';
+ import { api } from '../helpers/helpers';
   
   export default {
     data() {

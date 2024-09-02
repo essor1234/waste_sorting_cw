@@ -7,7 +7,7 @@
   
   <script>
   import ChallengeForm from './ChallengeForm.vue';
-  import { createChallenge } from '../helpers';
+  import { api } from '../../helpers/helpers';
   
   export default {
     components: { ChallengeForm },
