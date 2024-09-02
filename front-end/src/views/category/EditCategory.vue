@@ -6,8 +6,8 @@
   </template>
   
   <script>
-  import CategoryForm from './CategoryForm.vue';
-  import { api } from '../helpers/helpers';
+  import CategoryForm from '../../components/CategoryForm.vue';
+  import { api } from '../../helpers/helpers';
   
   export default {
     components: { CategoryForm },

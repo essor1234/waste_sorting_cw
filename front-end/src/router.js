@@ -1,4 +1,5 @@
-import vue from 'vue';
+import Vue from 'vue';
+import Router from 'vue-router';
 // Category
 import NewCategory from './views/category/NewCategory.vue';
 import EditCategory from './views/category/EditCategory.vue';
