@@ -1,26 +1,65 @@
 <template>
-    <span class="item-tag">{{ item.name }} ({{ item.category }})</span>
-  </template>
-  
-  <script>
-    import { api } from '../helpers/helpers';
+  <div class="item-container">
+    <!-- Item Name (Link) -->
+    <a :href="itemLink" class="item-name">{{ itemName }}</a>
 
-  export default {
-    props: {
-      item: {
-        type: Object,
-        required: true
-      }
+    <!-- Edit Button -->
+    <button @click="editItem" class="edit-btn">✏️</button>
+
+    <!-- Category -->
+    <span class="item-category">{{ itemCategory }}</span>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'ItemComponent',
+  props: {
+    itemName: {
+      type: String,
+      required: true
+    },
+    itemCategory: {
+      type: String,
+      required: true
+    },
+    itemLink: {
+      type: String,
+      default: '#'
     }
-  };
-  </script>
-  
-  <style>
-  .item-tag {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #e9e9e9;
+  },
+  methods: {
+    editItem() {
+      // Trigger edit action
+      this.$emit('edit', this.itemName);
+    }
   }
-  </style>
-  
+};
+</script>
+
+<style scoped>
+.item-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.item-name {
+  flex-grow: 1;
+  color: blue;
+  text-decoration: none;
+}
+
+.edit-btn {
+  margin-left: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.item-category {
+  margin-left: 15px;
+  color: grey;
+}
+</style>

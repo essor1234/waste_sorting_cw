@@ -28,7 +28,7 @@
 </template>
 
 <script>
-  import { api } from '../helpers/helpers';
+import { api } from '../helpers/helpers';
 export default {
   data() {
     return {
@@ -43,11 +43,11 @@ export default {
   methods: {
     addCategory() {
       // Logic to add a category
-      this.$router.push('/categories/new');
+      this.$router.push('/waste-categories/new');
     },
     addItem() {
       // Logic to add an item
-      this.$router.push('/items/new');
+      this.$router.push('/waste-items/new');
     },
     editItem(id) {
       // Logic to edit an item

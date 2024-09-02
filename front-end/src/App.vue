@@ -1,18 +1,17 @@
 <template>
   <div id="app">
-    <!-- Navigation Bar -->
-    <div class="navbar">
+    <!-- Conditionally render the navigation bar -->
+    <div v-if="showNavbar" class="navbar">
       <div class="ui menu">
         <!-- Logo Section -->
         <div class="header item">
           <img src="black-cat.png" alt="Logo" class="logo" />
         </div>
-        
-        <!-- Navigation Links -->
-        <router-link to="/MainPage" exact class="menu-item"> Home </router-link>
-        <router-link to="/MainPage/Challenges" class="menu-item"> Challenges </router-link>
-        <router-link to="/MainPage/Challenges/Start" class="menu-item"> Start Waste Management  </router-link>
-        <router-link to="/MainPage/user" class="menu-item"> User </router-link>
+       <!-- Navigation Links -->
+       <router-link to="/main" exact class="menu-item"> Home </router-link>
+        <router-link to="/challenges/new" class="menu-item"> Challenges </router-link>
+        <router-link to="/wasteManage" class="menu-item"> Start Waste Management </router-link>
+        <router-link to="/users/:userId" class="menu-item"> User </router-link>
       </div>
     </div>
 
@@ -28,6 +27,13 @@
 <script>
 export default {
   name: "App",
+  computed: {
+    showNavbar() {
+      // Hide the navbar on the Welcome, Login, and Register pages
+      const hiddenRoutes = ['/welcome', '/users/login', '/users/register'];
+      return !hiddenRoutes.includes(this.$route.path);
+    }
+  }
 };
 </script>
 
