@@ -12,7 +12,7 @@
   </template>
   
   <script>
-  import { fetchUserById, updateUser } from '../helpers';
+ ;
   
   export default {
     data() {

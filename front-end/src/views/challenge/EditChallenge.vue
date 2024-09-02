@@ -6,8 +6,7 @@
   </template>
   
   <script>
-  import ChallengeForm from './ChallengeForm.vue';
-  import { fetchChallengeById, updateChallenge } from '../helpers';
+  import { api }  from '../helpers/helpers';
   
   export default {
     components: { ChallengeForm },
