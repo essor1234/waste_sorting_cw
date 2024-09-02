@@ -26,5 +26,5 @@ Vue.config.productionTip = false;
 // Create and mount Vue instance
 new Vue({
     router, // Use the imported router
-    render: h => h(Welcome),
+    render: h => h(App), 
 }).$mount('#app');
