@@ -6,7 +6,8 @@
   </template>
   
   <script>
-  import { api }  from '../helpers/helpers';
+  import ChallengeForm from '../../components/ChallengeForm.vue';
+  import { api } from '../../helpers/helpers';
   
   export default {
     components: { ChallengeForm },

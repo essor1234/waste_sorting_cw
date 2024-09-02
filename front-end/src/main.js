@@ -1,6 +1,7 @@
 // Import Vue and other libraries
 import Vue from 'vue';
 import App from './App.vue';
+import Welcome from './views/Welcome.vue';
 import router from './router'; // Ensure this path is correct
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import axios from 'axios';
@@ -25,5 +26,5 @@ Vue.config.productionTip = false;
 // Create and mount Vue instance
 new Vue({
     router, // Use the imported router
-    render: h => h(App),
+    render: h => h(Welcome),
 }).$mount('#app');
