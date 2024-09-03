@@ -12,7 +12,6 @@
   </template>
   
   <script>
- ;
  import { api }  from '../../helpers/helpers';
   export default {
     data() {
